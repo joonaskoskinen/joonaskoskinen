@@ -13,6 +13,21 @@ export function Hero() {
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden px-4">
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl animate-pulse" />
+
+        {/* Vintage corner decorations */}
+        <div className="absolute top-8 left-8 w-16 h-16 border-l-4 border-t-4 border-primary/30 rounded-tl-2xl animate-float" />
+        <div
+          className="absolute top-8 right-8 w-16 h-16 border-r-4 border-t-4 border-accent/30 rounded-tr-2xl animate-float"
+          style={{ animationDelay: "0.5s" }}
+        />
+        <div
+          className="absolute bottom-8 left-8 w-16 h-16 border-l-4 border-b-4 border-accent/30 rounded-bl-2xl animate-float"
+          style={{ animationDelay: "1s" }}
+        />
+        <div
+          className="absolute bottom-8 right-8 w-16 h-16 border-r-4 border-b-4 border-primary/30 rounded-br-2xl animate-float"
+          style={{ animationDelay: "1.5s" }}
+        />
       </div>
 
       <div className="relative z-10 max-w-6xl w-full">
@@ -41,10 +56,8 @@ export function Hero() {
                 </svg>
               </div>
               <div>
-                <p className="text-sm text-muted-foreground uppercase tracking-wider">IT Specialist</p>
-                <p className="text-xl font-semibold group-hover:text-primary transition-colors">
-                  ICT Engineering Student
-                </p>
+                <p className="text-sm text-muted-foreground uppercase tracking-wider">Software Advisor</p>
+                <p className="text-xl font-semibold group-hover:text-primary transition-colors">Azets Insight</p>
               </div>
             </div>
 
@@ -55,20 +68,23 @@ export function Hero() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
-                    d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"
+                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
                   />
                 </svg>
               </div>
               <div>
-                <p className="text-sm text-muted-foreground uppercase tracking-wider">Producer</p>
-                <p className="text-xl font-semibold group-hover:text-accent transition-colors">Since 2016</p>
+                <p className="text-sm text-muted-foreground uppercase tracking-wider">Interested in</p>
+                <p className="text-xl font-semibold group-hover:text-accent transition-colors">Cybersecurity</p>
               </div>
             </div>
           </div>
 
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl leading-relaxed text-pretty mb-32">
-            IT specialist with hands-on experience in Azure, M365, and Business Central. Currently studying ICT
-            Engineering while producing music signed to major labels.
+            Software advisor specializing in{" "}
+            <span className="text-primary font-semibold">Microsoft Business Central</span>,{" "}
+            <span className="text-primary font-semibold">Azure</span>, and{" "}
+            <span className="text-primary font-semibold">M365</span> at Azets Insight. Passionate about cybersecurity,
+            system optimization, and building secure web applications.
           </p>
 
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 animate-bounce">
