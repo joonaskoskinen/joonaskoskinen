@@ -20,12 +20,12 @@ const musicHighlights = [
     description: "Produced tracks for various artists and commercial projects",
   },
   {
-    year: "2022",
+    year: "2023",
     milestone: "Major label release",
     description: "Released music on Sony Music Finland, reaching wider audiences",
   },
   {
-    year: "2024",
+    year: "2024-",
     milestone: "Ongoing evolution",
     description: "Continuously pushing boundaries in production and mixing",
   },
