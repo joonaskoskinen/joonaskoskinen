@@ -41,7 +41,7 @@ export function Music() {
               <span className="text-accent">Music</span> Production
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl">
-              Creating sonic experiences since 2016, with releases on Sony Music Finland
+              Creating experiences since 2016, with releases on Sony Music Finland
             </p>
           </div>
         </ScrollReveal>
