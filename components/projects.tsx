@@ -1,7 +1,7 @@
 "use client"
 
 import { Card } from "@/components/ui/card"
-import { ExternalLink, Briefcase, TrendingUp, Shield, Database } from "lucide-react"
+import { ExternalLink, Briefcase, TrendingUp, Shield, Database, GraduationCap } from "lucide-react"
 import { ScrollReveal } from "@/components/scroll-reveal"
 
 const workExperience = [
@@ -163,14 +163,7 @@ export function Projects() {
           <ScrollReveal delay={300}>
             <div className="mt-8 p-6 bg-accent/5 border-2 border-accent/20 rounded-lg hover:border-accent hover:bg-accent/10 transition-all duration-300">
               <div className="flex items-center gap-3">
-                <svg className="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13M0 18h.897c.35 0 .68-.188.897-.53l6.75-12.75C14.537 3.863 16.145 3 18 3h.897c.414 0 .75.336.75.75s-.336.75-.75.75H18v.75a3 3 0 01-3 3 3 3 0 01-3-3V3c0-.364-.146-.687-.417-.897L7.107 14.47A.75.75 0 016 15h.75a9 9 0 009 9M18 9a9 9 0 01-9 9m9 0a9 9 0 00-9-9m18 0a9 9 0 01-9-9m9 0a9 9 0 00-9 9"
-                  />
-                </svg>
+                <GraduationCap className="w-6 h-6 text-accent" />
                 <p className="text-lg">
                   <span className="font-semibold text-accent">Currently studying</span>
                   <span className="text-muted-foreground">
