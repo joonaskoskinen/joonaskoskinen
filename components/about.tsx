@@ -166,7 +166,7 @@ export function About() {
                   <div>
                     <h4 className="text-xl font-bold">Software Advisor</h4>
                     <p className="text-muted-foreground">Azets Insight Oy</p>
-                    <p className="text-sm text-muted-foreground mt-2">2023 - Present</p>
+                    <p className="text-sm text-muted-foreground mt-2">2025 - Present</p>
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     Business Central consulting, Azure infrastructure management, user management, and log monitoring
@@ -184,7 +184,7 @@ export function About() {
                   <div>
                     <h4 className="text-xl font-bold">Service Desk Specialist</h4>
                     <p className="text-muted-foreground">Istekki Oy</p>
-                    <p className="text-sm text-muted-foreground mt-2">2021 - 2023</p>
+                    <p className="text-sm text-muted-foreground mt-2">2024 - 2025</p>
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     First-line IT support, system troubleshooting, and customer service for various organizations
