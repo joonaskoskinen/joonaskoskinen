@@ -26,7 +26,7 @@ export function LoadingScreen() {
 
   return (
     <div className="fixed inset-0 z-50 bg-background flex items-center justify-center">
-      <div className="relative">
+      <div className="relative flex items-center justify-center">
         {/* Animated circles */}
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="w-32 h-32 border-4 border-primary/20 rounded-full animate-ping" />
@@ -34,7 +34,7 @@ export function LoadingScreen() {
         </div>
 
         {/* Center content */}
-        <div className="relative z-10 text-center">
+        <div className="relative z-10 text-center flex flex-col items-center">
           <h2 className="text-6xl font-bold mb-4 animate-pulse">
             <span className="text-primary">JK</span>
           </h2>
