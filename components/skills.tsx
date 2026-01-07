@@ -5,7 +5,28 @@ import { ScrollReveal } from "@/components/scroll-reveal"
 
 const skillCategories = [
   {
-    title: "IT & Cloud",
+    title: "Business Software",
+    icon: (
+      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+        />
+      </svg>
+    ),
+    skills: [
+      "Microsoft Dynamics NAV/Business Central",
+      "User Management & Optimization",
+      "SPOC Support Model",
+      "ERP System Administration",
+      "Business Software Consulting",
+    ],
+    color: "primary",
+  },
+  {
+    title: "Cloud & Infrastructure",
     icon: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path
@@ -16,47 +37,44 @@ const skillCategories = [
         />
       </svg>
     ),
-    skills: ["Microsoft Azure", "Active Directory", "Microsoft 365", "ITIL", "Service Desk"],
-    color: "primary",
+    skills: [
+      "Microsoft Azure",
+      "Azure Active Directory",
+      "Microsoft 365 Administration",
+      "Cloud Infrastructure",
+      "ITIL Service Management",
+    ],
+    color: "accent",
   },
   {
-    title: "Business Software",
+    title: "Security & Monitoring",
     icon: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth={2}
-          d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+          d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
         />
       </svg>
     ),
-    skills: ["Microsoft Dynamics NAV", "Business Central", "SPOC", "ERP Systems"],
-    color: "accent",
+    skills: [
+      "Log Analysis & Diagnostics",
+      "System Health Monitoring",
+      "Access Control & Permissions",
+      "Security Best Practices",
+      "Incident Response",
+    ],
+    color: "primary",
   },
   {
-    title: "Development",
+    title: "Full-Stack Development",
     icon: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
       </svg>
     ),
-    skills: ["Next.js", "React", "TypeScript", "Node.js", "PostgreSQL"],
-    color: "primary",
-  },
-  {
-    title: "Music Production",
-    icon: (
-      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"
-        />
-      </svg>
-    ),
-    skills: ["Sound Design", "Mixing & Mastering", "Electronic Production", "DAW Expertise"],
+    skills: ["Next.js & React", "TypeScript", "Node.js Backend", "PostgreSQL Database", "SEO Optimization"],
     color: "accent",
   },
 ]
@@ -67,11 +85,14 @@ export function Skills() {
       <div className="max-w-6xl mx-auto">
         <ScrollReveal>
           <div className="mb-16">
+            <div className="inline-block mb-6 px-6 py-2 border-2 border-primary/30 rounded-full">
+              <span className="text-sm text-primary font-mono uppercase tracking-widest">Technical Expertise</span>
+            </div>
             <h2 className="text-5xl md:text-7xl font-bold mb-4 text-balance">
               <span className="text-primary">Skills</span> & Expertise
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl">
-              A diverse skill set spanning IT infrastructure, business solutions, and creative production
+              Specialized in enterprise software, cloud infrastructure, and modern web development
             </p>
           </div>
         </ScrollReveal>
@@ -86,7 +107,7 @@ export function Skills() {
 
                 <div className="relative z-10">
                   <div
-                    className={`w-16 h-16 bg-${category.color}/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-${category.color} group-hover:scale-110 transition-all duration-300`}
+                    className={`w-16 h-16 bg-${category.color}/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-${category.color} group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}
                   >
                     <div className={`text-${category.color} group-hover:text-background transition-colors`}>
                       {category.icon}
