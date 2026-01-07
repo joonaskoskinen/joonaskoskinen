@@ -8,8 +8,46 @@ const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Joonas Koskinen - IT Developer & Music Producer",
-  description: "Portfolio of Joonas Koskinen - IT professional and music producer since 2016",
+  title: "Joonas Koskinen | IT Specialist & Software Advisor | Azure, M365, Business Central",
+  description:
+    "IT professional specializing in Microsoft Azure, M365, and Business Central at Azets Insight. ICT Engineering student with expertise in cybersecurity, license management, and full-stack web development. Available for consulting work.",
+  keywords: [
+    "IT specialist Finland",
+    "Microsoft Azure consultant",
+    "Business Central expert",
+    "M365 administrator",
+    "cybersecurity professional",
+    "software advisor",
+    "ICT engineering",
+    "full-stack developer",
+    "Kuopio IT",
+  ],
+  authors: [{ name: "Joonas Koskinen" }],
+  openGraph: {
+    title: "Joonas Koskinen - IT Specialist & Software Advisor",
+    description:
+      "IT professional specializing in Azure, M365, and Business Central. Available for consulting work in Finland.",
+    url: "https://joonaskoskinen.com",
+    siteName: "Joonas Koskinen Portfolio",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Joonas Koskinen - IT Specialist",
+    description: "IT professional specializing in Azure, M365, and Business Central",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   generator: "v0.app",
   icons: {
     icon: [
