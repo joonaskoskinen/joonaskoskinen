@@ -51,7 +51,7 @@ export function Hero() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
-                    d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
                   />
                 </svg>
               </div>
@@ -79,13 +79,48 @@ export function Hero() {
             </div>
           </div>
 
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl leading-relaxed text-pretty mb-32">
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl leading-relaxed text-pretty mb-12">
             Software advisor specializing in{" "}
             <span className="text-primary font-semibold">Microsoft Business Central</span>,{" "}
             <span className="text-primary font-semibold">Azure</span>, and{" "}
             <span className="text-primary font-semibold">M365</span> at Azets Insight. Passionate about cybersecurity,
             system optimization, and building secure web applications.
           </p>
+
+          <div className="mb-32 relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-2xl blur-xl" />
+            <div className="relative border-2 border-primary bg-card/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl hover:shadow-primary/20 transition-all duration-300 hover:scale-[1.02]">
+              <div className="flex items-start gap-4">
+                <div className="mt-1 flex-shrink-0">
+                  <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center animate-pulse">
+                    <svg
+                      className="w-6 h-6 text-background"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold mb-2 text-primary">Actively Seeking New Opportunities</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    I'm actively seeking new job opportunities, particularly in{" "}
+                    <span className="text-foreground font-semibold">1st–2nd level IT support roles</span>. I'm motivated
+                    to develop my career in the IT field and am especially interested in{" "}
+                    <span className="text-foreground font-semibold">cybersecurity</span>, where I want to deepen my
+                    expertise and continuously learn through hands-on practical work.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
 
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 animate-bounce">
             <svg
