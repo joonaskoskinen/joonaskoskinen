@@ -1,23 +1,39 @@
 "use client"
 
 import { Card } from "@/components/ui/card"
-import { ExternalLink, Briefcase } from "lucide-react"
+import { ExternalLink, Briefcase, TrendingUp, Shield, Database } from "lucide-react"
 import { ScrollReveal } from "@/components/scroll-reveal"
 
 const workExperience = [
   {
-    title: "Service Desk Specialist",
-    company: "Istekki Oy",
-    description: "IT support and system administration",
-    skills: ["Azure", "Active Directory", "ITIL", "Microsoft 365"],
-    color: "from-primary/20 to-accent/20",
-  },
-  {
     title: "Software Advisor",
     company: "Azets Insight Oy",
-    description: "Business software consulting and support",
-    skills: ["Microsoft NAV/Business Central", "SPOC", "Microsoft 365"],
+    period: "Current Role",
+    description: "Business software consulting focused on Microsoft Dynamics NAV/Business Central",
+    achievements: [
+      "User management and optimization for Business Central clients",
+      "System health monitoring through log analysis and diagnostics",
+      "SPOC (Single Point of Contact) support for enterprise customers",
+      "Azure infrastructure troubleshooting and maintenance",
+    ],
+    skills: ["Business Central", "Azure", "User Management", "Log Monitoring", "M365"],
+    color: "from-primary/20 to-accent/20",
+    icon: <Briefcase className="w-6 h-6" />,
+  },
+  {
+    title: "Service Desk Specialist",
+    company: "Istekki Oy",
+    period: "Previous Role",
+    description: "IT support and system administration following ITIL best practices",
+    achievements: [
+      "Active Directory user and group management",
+      "Azure AD integration and troubleshooting",
+      "Microsoft 365 administration and support",
+      "Incident management and resolution tracking",
+    ],
+    skills: ["Azure AD", "Active Directory", "ITIL", "M365 Admin", "Service Desk"],
     color: "from-accent/20 to-primary/20",
+    icon: <Shield className="w-6 h-6" />,
   },
 ]
 
@@ -25,16 +41,46 @@ const projects = [
   {
     title: "Plushimo",
     url: "plushimo.com",
-    description: "A modern e-commerce platform with sleek design and seamless user experience",
-    tech: ["Next.js", "React", "TypeScript"],
+    description: "E-commerce platform with focus on performance and search optimization",
+    caseStudy: {
+      challenge: "Low organic traffic and poor search engine visibility",
+      solution: "Implemented comprehensive SEO strategy with Next.js optimization",
+      result: "30% increase in organic traffic within 3 months",
+    },
+    tech: ["Next.js", "TypeScript", "React", "SEO Optimization"],
+    metrics: [{ label: "SEO Improvement", value: "+30%" }],
     color: "from-primary/20 to-accent/20",
   },
   {
     title: "Summari",
     url: "summari.fi",
-    description: "Finnish web solution delivering clean, functional design and robust backend",
-    tech: ["React", "Node.js", "PostgreSQL"],
+    description: "Finnish web solution with robust backend architecture",
+    caseStudy: {
+      challenge: "Need for scalable Finnish language content platform",
+      solution: "Built full-stack application with PostgreSQL database and secure authentication",
+      result: "Deployed production-ready platform",
+    },
+    tech: ["Next.js", "TypeScript", "PostgreSQL", "Authentication"],
+    metrics: [],
     color: "from-accent/20 to-primary/20",
+  },
+]
+
+const securityInterests = [
+  {
+    title: "Log Analysis & Monitoring",
+    description: "Experience in monitoring Business Central logs for security events and system anomalies",
+    icon: <Database className="w-5 h-5" />,
+  },
+  {
+    title: "User & Access Management",
+    description: "Managing user permissions and access compliance in enterprise environments",
+    icon: <Shield className="w-5 h-5" />,
+  },
+  {
+    title: "Azure Security",
+    description: "Working with Azure AD, conditional access policies, and cloud security best practices",
+    icon: <TrendingUp className="w-5 h-5" />,
   },
 ]
 
@@ -42,6 +88,7 @@ export function Projects() {
   return (
     <section id="projects" className="py-24 px-4 relative">
       <div className="max-w-6xl mx-auto space-y-24">
+        {/* Work Experience Section */}
         <div>
           <ScrollReveal>
             <div className="mb-16">
@@ -49,33 +96,59 @@ export function Projects() {
                 <span className="text-primary">Work</span> Experience
               </h2>
               <p className="text-xl text-muted-foreground max-w-2xl">
-                IT professional with experience in service desk operations and business software consulting
+                IT professional with hands-on experience in enterprise software and cloud infrastructure
               </p>
             </div>
           </ScrollReveal>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="space-y-6">
             {workExperience.map((job, index) => (
               <ScrollReveal key={index} delay={index * 150}>
-                <Card className="group relative overflow-hidden border-2 border-border hover:border-primary hover:scale-105 transition-all duration-500 bg-card p-8">
+                <Card className="group relative overflow-hidden border-2 border-border hover:border-primary transition-all duration-500 bg-card p-8">
                   <div
                     className={`absolute inset-0 bg-gradient-to-br ${job.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
                   />
 
                   <div className="relative z-10">
-                    <div className="flex items-center gap-3 mb-4">
-                      <Briefcase className="w-6 h-6 text-primary group-hover:rotate-12 transition-transform" />
-                      <div className="text-sm font-mono text-accent">{job.company}</div>
+                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
+                      <div className="flex items-center gap-4">
+                        <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all">
+                          <div className="text-primary group-hover:text-background transition-colors">{job.icon}</div>
+                        </div>
+                        <div>
+                          <h3 className="text-3xl font-bold group-hover:text-primary transition-colors">{job.title}</h3>
+                          <div className="flex flex-col md:flex-row md:items-center gap-2 mt-1">
+                            <p className="text-lg font-semibold text-accent">{job.company}</p>
+                            <span className="hidden md:inline text-muted-foreground">•</span>
+                            <p className="text-sm text-muted-foreground font-mono">{job.period}</p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
 
-                    <h3 className="text-3xl font-bold mb-4 group-hover:text-primary transition-colors">{job.title}</h3>
                     <p className="text-muted-foreground mb-6 leading-relaxed">{job.description}</p>
+
+                    <div className="mb-6">
+                      <h4 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-3">
+                        Key Achievements
+                      </h4>
+                      <ul className="space-y-2">
+                        {job.achievements.map((achievement, i) => (
+                          <li key={i} className="flex items-start gap-3 group/item">
+                            <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 group-hover/item:scale-150 transition-transform" />
+                            <span className="text-muted-foreground group-hover/item:text-foreground transition-colors leading-relaxed">
+                              {achievement}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
 
                     <div className="flex flex-wrap gap-2">
                       {job.skills.map((skill, i) => (
                         <span
                           key={i}
-                          className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-md border border-primary/20 hover:bg-primary hover:text-background transition-all"
+                          className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-md border border-primary/20 hover:bg-primary hover:text-background transition-all cursor-default"
                         >
                           {skill}
                         </span>
@@ -95,19 +168,56 @@ export function Projects() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
-                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13M0 18h.897c.35 0 .68-.188.897-.53l6.75-12.75C14.537 3.863 16.145 3 18 3h.897c.414 0 .75.336.75.75s-.336.75-.75.75H18v.75a3 3 0 01-3 3 3 3 0 01-3-3V3c0-.364-.146-.687-.417-.897L7.107 14.47A.75.75 0 016 15h.75a9 9 0 009 9M18 9a9 9 0 01-9 9m9 0a9 9 0 00-9-9m18 0a9 9 0 01-9-9m9 0a9 9 0 00-9 9"
                   />
                 </svg>
                 <p className="text-lg">
                   <span className="font-semibold text-accent">Currently studying</span>
-                  <span className="text-muted-foreground"> Information and Communication Technology Engineering</span>
+                  <span className="text-muted-foreground">
+                    {" "}
+                    Information and Communication Technology Engineering at LAB University of Applied Sciences
+                  </span>
                 </p>
               </div>
             </div>
           </ScrollReveal>
         </div>
 
-        {/* Web Projects section */}
+        {/* Cybersecurity Interests Section */}
+        <div>
+          <ScrollReveal>
+            <div className="mb-16">
+              <h2 className="text-5xl md:text-7xl font-bold mb-4 text-balance">
+                <span className="text-primary">Cybersecurity</span> Focus
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-2xl">
+                Passionate about security, monitoring, and protecting enterprise systems
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {securityInterests.map((interest, index) => (
+              <ScrollReveal key={index} delay={index * 100}>
+                <Card className="group relative overflow-hidden border-2 border-border hover:border-accent transition-all duration-500 bg-card p-6">
+                  <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                  <div className="relative z-10">
+                    <div className="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent group-hover:scale-110 transition-all">
+                      <div className="text-accent group-hover:text-background transition-colors">{interest.icon}</div>
+                    </div>
+                    <h3 className="text-xl font-bold mb-3 group-hover:text-accent transition-colors">
+                      {interest.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{interest.description}</p>
+                  </div>
+                </Card>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+
+        {/* Web Projects Section */}
         <div>
           <ScrollReveal>
             <div className="mb-16">
@@ -115,7 +225,7 @@ export function Projects() {
                 <span className="text-primary">Web</span> Projects
               </h2>
               <p className="text-xl text-muted-foreground max-w-2xl">
-                Building full-stack applications with modern technologies and best practices
+                Full-stack applications with measurable results and real-world impact
               </p>
             </div>
           </ScrollReveal>
@@ -123,13 +233,14 @@ export function Projects() {
           <div className="grid md:grid-cols-2 gap-6">
             {projects.map((project, index) => (
               <ScrollReveal key={index} delay={index * 150}>
-                <Card className="group relative overflow-hidden border-2 border-border hover:border-primary hover:scale-105 hover:rotate-1 transition-all duration-500 bg-card p-8">
+                <Card className="group relative overflow-hidden border-2 border-border hover:border-primary hover:scale-105 transition-all duration-500 bg-card p-8">
                   <div
                     className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
                   />
 
                   <div className="relative z-10">
-                    <div className="text-6xl font-bold text-primary/20 mb-4 group-hover:scale-110 transition-transform">
+                    {/* Vintage number badge */}
+                    <div className="text-6xl font-bold text-primary/20 mb-4 group-hover:scale-110 group-hover:rotate-6 transition-transform">
                       0{index + 1}
                     </div>
 
@@ -149,11 +260,46 @@ export function Projects() {
 
                     <p className="text-muted-foreground mb-6 leading-relaxed">{project.description}</p>
 
+                    {/* Case study details */}
+                    <div className="mb-6 p-4 bg-background/50 rounded-lg border border-border/50">
+                      <h4 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-3">
+                        Case Study
+                      </h4>
+                      <div className="space-y-2 text-sm">
+                        <p>
+                          <span className="text-accent font-semibold">Challenge:</span>{" "}
+                          <span className="text-muted-foreground">{project.caseStudy.challenge}</span>
+                        </p>
+                        <p>
+                          <span className="text-primary font-semibold">Solution:</span>{" "}
+                          <span className="text-muted-foreground">{project.caseStudy.solution}</span>
+                        </p>
+                        <p>
+                          <span className="text-accent font-semibold">Result:</span>{" "}
+                          <span className="text-foreground font-semibold">{project.caseStudy.result}</span>
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Metrics */}
+                    {project.metrics.length > 0 && (
+                      <div className="flex gap-4 mb-6">
+                        {project.metrics.map((metric, i) => (
+                          <div key={i} className="flex-1 p-3 bg-primary/5 rounded-lg border border-primary/20">
+                            <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">
+                              {metric.label}
+                            </p>
+                            <p className="text-2xl font-bold text-primary">{metric.value}</p>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
                     <div className="flex flex-wrap gap-2">
                       {project.tech.map((tech, i) => (
                         <span
                           key={i}
-                          className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-md border border-primary/20 hover:bg-primary hover:text-background transition-all"
+                          className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-md border border-primary/20 hover:bg-primary hover:text-background transition-all cursor-default"
                         >
                           {tech}
                         </span>
