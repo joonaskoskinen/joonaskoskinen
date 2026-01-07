@@ -2,6 +2,7 @@
 
 import { Card } from "@/components/ui/card"
 import { ScrollReveal } from "@/components/scroll-reveal"
+import Image from "next/image"
 
 export function About() {
   return (
@@ -151,6 +152,48 @@ export function About() {
             </ScrollReveal>
           </div>
         </div>
+
+        <ScrollReveal delay={600}>
+          <div className="mt-24">
+            <h3 className="text-3xl font-bold mb-12 text-center">Work Experience</h3>
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Azets Insight */}
+              <Card className="p-8 border-2 border-border hover:border-primary transition-all duration-300 group bg-card">
+                <div className="flex flex-col items-center text-center space-y-4">
+                  <div className="relative w-48 h-24 mb-2">
+                    <Image src="/images/azets-logo-p.jpg" alt="Azets logo" fill className="object-contain" />
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-bold">Software Advisor</h4>
+                    <p className="text-muted-foreground">Azets Insight Oy</p>
+                    <p className="text-sm text-muted-foreground mt-2">2023 - Present</p>
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Business Central consulting, Azure infrastructure management, user management, and log monitoring
+                    for enterprise clients
+                  </p>
+                </div>
+              </Card>
+
+              {/* Istekki */}
+              <Card className="p-8 border-2 border-border hover:border-primary transition-all duration-300 group bg-card">
+                <div className="flex flex-col items-center text-center space-y-4">
+                  <div className="relative w-48 h-24 mb-2">
+                    <Image src="/images/istekki.jpg" alt="Istekki logo" fill className="object-contain" />
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-bold">Service Desk Specialist</h4>
+                    <p className="text-muted-foreground">Istekki Oy</p>
+                    <p className="text-sm text-muted-foreground mt-2">2021 - 2023</p>
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    First-line IT support, system troubleshooting, and customer service for various organizations
+                  </p>
+                </div>
+              </Card>
+            </div>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   )
