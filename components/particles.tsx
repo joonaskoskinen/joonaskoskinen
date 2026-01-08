@@ -9,7 +9,10 @@ interface Particle {
   vy: number
   size: number
   opacity: number
+  char: string
 }
+
+const matrixChars = "01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン"
 
 export function Particles() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -24,7 +27,6 @@ export function Particles() {
     let animationFrameId: number
     const particles: Particle[] = []
 
-    // Set canvas size
     const resize = () => {
       canvas.width = window.innerWidth
       canvas.height = window.innerHeight
@@ -32,20 +34,19 @@ export function Particles() {
     resize()
     window.addEventListener("resize", resize)
 
-    // Create particles
-    const particleCount = 50
+    const particleCount = 60
     for (let i = 0; i < particleCount; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
-        size: Math.random() * 2 + 1,
-        opacity: Math.random() * 0.5 + 0.2,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: Math.random() * 0.5 + 0.2, // Falling effect
+        size: Math.random() * 12 + 10,
+        opacity: Math.random() * 0.4 + 0.1,
+        char: matrixChars[Math.floor(Math.random() * matrixChars.length)],
       })
     }
 
-    // Mouse interaction
     let mouseX = 0
     let mouseY = 0
     const handleMouseMove = (e: MouseEvent) => {
@@ -54,12 +55,10 @@ export function Particles() {
     }
     window.addEventListener("mousemove", handleMouseMove)
 
-    // Animation loop
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
       particles.forEach((particle, i) => {
-        // Update position
         particle.x += particle.vx
         particle.y += particle.vy
 
@@ -68,31 +67,36 @@ export function Particles() {
         const dy = mouseY - particle.y
         const distance = Math.sqrt(dx * dx + dy * dy)
         if (distance < 100) {
-          particle.x -= dx * 0.01
-          particle.y -= dy * 0.01
+          particle.x -= dx * 0.02
+          particle.y -= dy * 0.02
         }
 
-        // Boundary check
-        if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1
-        if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1
+        // Reset when falling off screen
+        if (particle.y > canvas.height) {
+          particle.y = -20
+          particle.x = Math.random() * canvas.width
+          particle.char = matrixChars[Math.floor(Math.random() * matrixChars.length)]
+        }
+        if (particle.x < 0) particle.x = canvas.width
+        if (particle.x > canvas.width) particle.x = 0
 
-        // Draw particle
-        ctx.beginPath()
-        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(72, 187, 120, ${particle.opacity})`
-        ctx.fill()
+        ctx.font = `${particle.size}px monospace`
+        ctx.fillStyle = `rgba(0, 210, 190, ${particle.opacity})`
+        ctx.shadowColor = "rgba(0, 210, 190, 0.5)"
+        ctx.shadowBlur = 10
+        ctx.fillText(particle.char, particle.x, particle.y)
+        ctx.shadowBlur = 0
 
-        // Draw connections
         particles.forEach((otherParticle, j) => {
           if (i === j) return
           const dx = particle.x - otherParticle.x
           const dy = particle.y - otherParticle.y
           const distance = Math.sqrt(dx * dx + dy * dy)
-          if (distance < 150) {
+          if (distance < 120) {
             ctx.beginPath()
             ctx.moveTo(particle.x, particle.y)
             ctx.lineTo(otherParticle.x, otherParticle.y)
-            ctx.strokeStyle = `rgba(72, 187, 120, ${(1 - distance / 150) * 0.2})`
+            ctx.strokeStyle = `rgba(0, 210, 190, ${(1 - distance / 120) * 0.15})`
             ctx.stroke()
           }
         })
