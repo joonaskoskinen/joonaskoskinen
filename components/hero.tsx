@@ -43,39 +43,41 @@ export function Hero() {
         />
 
         {/* Glowing orb */}
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-primary/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="absolute top-8 left-8 w-12 h-12 border-l-2 border-t-2 border-primary/50" />
-      <div className="absolute top-8 right-8 w-12 h-12 border-r-2 border-t-2 border-primary/50" />
-      <div className="absolute bottom-8 left-8 w-12 h-12 border-l-2 border-b-2 border-primary/50" />
-      <div className="absolute bottom-8 right-8 w-12 h-12 border-r-2 border-b-2 border-primary/50" />
+      <div className="hidden md:block absolute top-8 left-8 w-12 h-12 border-l-2 border-t-2 border-primary/50" />
+      <div className="hidden md:block absolute top-8 right-8 w-12 h-12 border-r-2 border-t-2 border-primary/50" />
+      <div className="hidden md:block absolute bottom-8 left-8 w-12 h-12 border-l-2 border-b-2 border-primary/50" />
+      <div className="hidden md:block absolute bottom-8 right-8 w-12 h-12 border-r-2 border-b-2 border-primary/50" />
 
       <div className="relative z-10 max-w-6xl w-full">
         <div
           className={`transition-all duration-1000 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
-          <div className="font-mono text-sm text-muted-foreground mb-4">
+          <div className="font-mono text-xs md:text-sm text-muted-foreground mb-4">
             <span className="text-primary">~</span> ./portfolio.sh --user="Joonas Koskinen"
           </div>
 
-          <div className="mb-8">
-            <h1 className="text-6xl md:text-8xl font-bold tracking-tight mb-2">
+          <div className="mb-6 md:mb-8">
+            <h1 className="text-4xl sm:text-5xl md:text-8xl font-bold tracking-tight mb-2">
               <span className="text-foreground">Joonas</span>
             </h1>
-            <h1 className="text-6xl md:text-8xl font-bold tracking-tight text-primary animate-text-glow">Koskinen</h1>
+            <h1 className="text-4xl sm:text-5xl md:text-8xl font-bold tracking-tight text-primary animate-text-glow">
+              Koskinen
+            </h1>
           </div>
 
-          <div className="font-mono text-lg md:text-xl text-muted-foreground mb-8 h-8">
+          <div className="font-mono text-sm md:text-xl text-muted-foreground mb-6 md:mb-8 min-h-[2rem]">
             <span className="text-primary">{">"}</span> {typedText}
             <span className="animate-blink text-primary">_</span>
           </div>
 
-          <div className="flex flex-col md:flex-row gap-4 mb-12">
-            <div className="flex items-center gap-3 group cursor-pointer border border-primary/30 bg-card/50 p-4 hover:border-primary hover:bg-primary/5 transition-all">
-              <div className="w-10 h-10 border border-primary bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-all">
+          <div className="flex flex-col gap-3 md:gap-4 mb-8 md:mb-12">
+            <div className="flex items-center gap-3 group cursor-pointer border border-primary/30 bg-card/50 p-3 md:p-4 hover:border-primary hover:bg-primary/5 transition-all">
+              <div className="w-8 h-8 md:w-10 md:h-10 border border-primary bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-all flex-shrink-0">
                 <svg
-                  className="w-5 h-5 text-primary group-hover:text-background"
+                  className="w-4 h-4 md:w-5 md:h-5 text-primary group-hover:text-background"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -88,18 +90,18 @@ export function Hero() {
                   />
                 </svg>
               </div>
-              <div>
+              <div className="min-w-0">
                 <p className="text-xs text-muted-foreground font-mono uppercase tracking-wider">status://work</p>
-                <p className="text-lg font-semibold font-mono group-hover:text-primary transition-colors">
+                <p className="text-base md:text-lg font-semibold font-mono group-hover:text-primary transition-colors truncate">
                   Azets Insight
                 </p>
               </div>
             </div>
 
-            <div className="flex items-center gap-3 group cursor-pointer border border-accent/30 bg-card/50 p-4 hover:border-accent hover:bg-accent/5 transition-all">
-              <div className="w-10 h-10 border border-accent bg-accent/10 flex items-center justify-center group-hover:bg-accent transition-all">
+            <div className="flex items-center gap-3 group cursor-pointer border border-accent/30 bg-card/50 p-3 md:p-4 hover:border-accent hover:bg-accent/5 transition-all">
+              <div className="w-8 h-8 md:w-10 md:h-10 border border-accent bg-accent/10 flex items-center justify-center group-hover:bg-accent transition-all flex-shrink-0">
                 <svg
-                  className="w-5 h-5 text-accent group-hover:text-background"
+                  className="w-4 h-4 md:w-5 md:h-5 text-accent group-hover:text-background"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -112,16 +114,16 @@ export function Hero() {
                   />
                 </svg>
               </div>
-              <div>
+              <div className="min-w-0">
                 <p className="text-xs text-muted-foreground font-mono uppercase tracking-wider">focus://security</p>
-                <p className="text-lg font-semibold font-mono group-hover:text-accent transition-colors">
+                <p className="text-base md:text-lg font-semibold font-mono group-hover:text-accent transition-colors truncate">
                   Cybersecurity
                 </p>
               </div>
             </div>
           </div>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed text-pretty mb-12">
+          <p className="text-base md:text-xl text-muted-foreground max-w-3xl leading-relaxed text-pretty mb-8 md:mb-12">
             Software advisor specializing in{" "}
             <span className="text-primary font-mono font-semibold">Microsoft Business Central</span>,{" "}
             <span className="text-primary font-mono font-semibold">Azure</span>, and{" "}
@@ -129,13 +131,13 @@ export function Hero() {
             cybersecurity, system optimization, and building secure web applications.
           </p>
 
-          <div className="mb-32 relative">
-            <div className="border border-primary bg-card/80 backdrop-blur-sm p-6 animate-glow">
-              <div className="flex items-start gap-4">
+          <div className="mb-24 md:mb-32 relative">
+            <div className="border border-primary bg-card/80 backdrop-blur-sm p-4 md:p-6 animate-glow">
+              <div className="flex flex-col sm:flex-row items-start gap-3 md:gap-4">
                 <div className="mt-1 flex-shrink-0">
-                  <div className="w-10 h-10 border border-primary bg-primary/20 flex items-center justify-center">
+                  <div className="w-8 h-8 md:w-10 md:h-10 border border-primary bg-primary/20 flex items-center justify-center">
                     <svg
-                      className="w-5 h-5 text-primary"
+                      className="w-4 h-4 md:w-5 md:h-5 text-primary"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -150,10 +152,10 @@ export function Hero() {
                   </div>
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg font-mono font-bold mb-2 text-primary">
+                  <h3 className="text-base md:text-lg font-mono font-bold mb-2 text-primary">
                     <span className="text-accent">[ALERT]</span> Actively Seeking New Opportunities
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
                     I'm actively seeking new job opportunities, particularly in{" "}
                     <span className="text-foreground font-mono font-semibold">1st–2nd level IT support roles</span>. I'm
                     motivated to develop my career in the IT field and am especially interested in{" "}
@@ -166,6 +168,7 @@ export function Hero() {
           </div>
 
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 animate-bounce">
+            <span className="sr-only">Scroll down</span>
             <svg
               className="w-6 h-6 text-primary"
               fill="none"
