@@ -20,7 +20,6 @@ export function Navigation() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50)
 
-      // Detect active section
       const sections = navItems.map((item) => item.href.slice(1))
       for (const section of sections) {
         const element = document.getElementById(section)
@@ -56,40 +55,40 @@ export function Navigation() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-background/80 backdrop-blur-lg border-b border-border shadow-lg" : "bg-transparent"
+        scrolled ? "bg-background/90 backdrop-blur-md border-b border-primary/20" : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-        <div className="w-8" />
+        <div className="font-mono text-sm text-primary">
+          <span className="text-muted-foreground">user@</span>jk<span className="animate-blink">_</span>
+        </div>
 
         {/* Nav items */}
-        <div className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => (
+        <div className="hidden md:flex items-center gap-1">
+          {navItems.map((item, index) => (
             <button
               key={item.href}
               onClick={() => scrollToSection(item.href)}
               aria-label={`Navigate to ${item.label}`}
-              className={`text-sm font-medium uppercase tracking-wider transition-all duration-300 hover:text-primary relative group ${
-                activeSection === item.href.slice(1) ? "text-primary" : "text-muted-foreground"
+              className={`px-4 py-2 font-mono text-sm uppercase tracking-wider transition-all duration-300 border ${
+                activeSection === item.href.slice(1)
+                  ? "text-primary border-primary bg-primary/10"
+                  : "text-muted-foreground border-transparent hover:text-primary hover:border-primary/50"
               }`}
             >
+              <span className="text-primary/50 mr-1">0{index + 1}.</span>
               {item.label}
-              <span
-                className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 ${
-                  activeSection === item.href.slice(1) ? "w-full" : "w-0 group-hover:w-full"
-                }`}
-              />
             </button>
           ))}
         </div>
 
         <button
-          className="md:hidden text-foreground hover:text-primary transition-colors"
+          className="md:hidden text-foreground hover:text-primary transition-colors border border-primary/30 p-2"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle mobile menu"
           aria-expanded={mobileMenuOpen}
         >
-          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             {mobileMenuOpen ? (
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             ) : (
@@ -100,17 +99,18 @@ export function Navigation() {
       </div>
 
       {mobileMenuOpen && (
-        <div className="md:hidden bg-background/95 backdrop-blur-lg border-t border-border">
-          <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-4">
-            {navItems.map((item) => (
+        <div className="md:hidden bg-background/95 backdrop-blur-md border-t border-primary/20">
+          <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col">
+            {navItems.map((item, index) => (
               <button
                 key={item.href}
                 onClick={() => scrollToSection(item.href)}
                 aria-label={`Navigate to ${item.label}`}
-                className={`text-left text-base font-medium uppercase tracking-wider transition-colors py-2 ${
+                className={`text-left font-mono text-sm uppercase tracking-wider transition-colors py-3 border-b border-border/50 ${
                   activeSection === item.href.slice(1) ? "text-primary" : "text-muted-foreground hover:text-primary"
                 }`}
               >
+                <span className="text-primary/50 mr-2">0{index + 1}.</span>
                 {item.label}
               </button>
             ))}
