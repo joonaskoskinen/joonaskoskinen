@@ -53,8 +53,8 @@ const projects = [
     url: "summari.fi",
     description: "Finnish web solution with robust backend architecture",
     caseStudy: {
-      challenge: "Need for scalable Finnish language content platform",
-      solution: "Built full-stack application with PostgreSQL database and secure authentication",
+      challenge: "Need for flexible payment system beyond traditional Shopify store",
+      solution: "Implemented custom Stripe integration supporting subscriptions, one-time payments, and secure checkout flows",
       result: "Deployed production-ready platform",
     },
     tech: ["Next.js", "TypeScript", "PostgreSQL", "Authentication"],
