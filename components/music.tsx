@@ -192,7 +192,7 @@ export function Music() {
         {/* Music stats - 2x2 grid on mobile */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
           {[
-            { label: "Years", value: "8+", prefix: "exp:", icon: Music2 },
+            { label: "Years", value: "10+", prefix: "exp:", icon: Music2 },
             { label: "Projects", value: "100+", prefix: "count:", icon: Music2 },
             { label: "Label", value: "Sony", prefix: "signed:", icon: Award },
             { label: "Status", value: "Active", prefix: "state:", icon: Play },
