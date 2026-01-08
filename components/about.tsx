@@ -11,6 +11,10 @@ export function About() {
           {/* Left side - About text */}
           <ScrollReveal>
             <div>
+              <div className="font-mono text-sm text-muted-foreground mb-4">
+                <span className="text-primary">{">"}</span> cat about.txt
+              </div>
+
               <h2 className="text-5xl md:text-7xl font-bold mb-8 text-balance">
                 About <span className="text-primary">Me</span>
               </h2>
@@ -18,21 +22,21 @@ export function About() {
               <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
                 <p>
                   I'm an IT specialist with a passion for both technology and music. Currently studying{" "}
-                  <span className="text-foreground font-semibold">ICT Engineering</span>, I combine technical expertise
-                  with creative production.
+                  <span className="text-foreground font-mono font-semibold">ICT Engineering</span>, I combine technical
+                  expertise with creative production.
                 </p>
 
                 <p>
                   My professional journey has taken me through service desk operations at{" "}
-                  <span className="text-primary font-semibold">Istekki Oy</span> and business software consulting at{" "}
-                  <span className="text-primary font-semibold">Azets Insight Oy</span>, where I've worked extensively
-                  with Microsoft technologies, Azure infrastructure, and enterprise solutions.
+                  <span className="text-primary font-mono font-semibold">Istekki Oy</span> and business software
+                  consulting at <span className="text-primary font-mono font-semibold">Azets Insight Oy</span>, where
+                  I've worked extensively with Microsoft technologies, Azure infrastructure, and enterprise solutions.
                 </p>
 
                 <p>
                   Outside of IT, I've been producing electronic music since 2016, with releases on{" "}
-                  <span className="text-accent font-semibold">Sony Music Finland</span>. This dual expertise allows me
-                  to approach problems from both analytical and creative perspectives.
+                  <span className="text-accent font-mono font-semibold">Sony Music Finland</span>. This dual expertise
+                  allows me to approach problems from both analytical and creative perspectives.
                 </p>
               </div>
             </div>
@@ -41,9 +45,9 @@ export function About() {
           {/* Right side - Quick facts cards */}
           <div className="space-y-4">
             <ScrollReveal delay={200}>
-              <Card className="p-6 border-2 border-border hover:border-primary transition-all duration-300 group bg-card">
+              <Card className="p-6 border border-primary/30 hover:border-primary transition-all duration-300 group bg-card">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all">
+                  <div className="w-12 h-12 border border-primary bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-all">
                     <svg
                       className="w-6 h-6 text-primary group-hover:text-background"
                       fill="none"
@@ -59,17 +63,17 @@ export function About() {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-sm text-muted-foreground uppercase tracking-wider">Current Role</p>
-                    <p className="text-lg font-semibold">IT Specialist & Student</p>
+                    <p className="text-xs text-muted-foreground font-mono uppercase tracking-wider">status.role</p>
+                    <p className="text-lg font-semibold font-mono">IT Specialist & Student</p>
                   </div>
                 </div>
               </Card>
             </ScrollReveal>
 
             <ScrollReveal delay={300}>
-              <Card className="p-6 border-2 border-border hover:border-accent transition-all duration-300 group bg-card">
+              <Card className="p-6 border border-accent/30 hover:border-accent transition-all duration-300 group bg-card">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center group-hover:bg-accent group-hover:scale-110 transition-all">
+                  <div className="w-12 h-12 border border-accent bg-accent/10 flex items-center justify-center group-hover:bg-accent transition-all">
                     <svg
                       className="w-6 h-6 text-accent group-hover:text-background"
                       fill="none"
@@ -85,17 +89,17 @@ export function About() {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-sm text-muted-foreground uppercase tracking-wider">Music Career</p>
-                    <p className="text-lg font-semibold">Producer since 2016</p>
+                    <p className="text-xs text-muted-foreground font-mono uppercase tracking-wider">hobby.music</p>
+                    <p className="text-lg font-semibold font-mono">Producer since 2016</p>
                   </div>
                 </div>
               </Card>
             </ScrollReveal>
 
             <ScrollReveal delay={400}>
-              <Card className="p-6 border-2 border-border hover:border-primary transition-all duration-300 group bg-card">
+              <Card className="p-6 border border-primary/30 hover:border-primary transition-all duration-300 group bg-card">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all">
+                  <div className="w-12 h-12 border border-primary bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-all">
                     <svg
                       className="w-6 h-6 text-primary group-hover:text-background"
                       fill="none"
@@ -117,17 +121,17 @@ export function About() {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-sm text-muted-foreground uppercase tracking-wider">Location</p>
-                    <p className="text-lg font-semibold">Kuopio, Finland</p>
+                    <p className="text-xs text-muted-foreground font-mono uppercase tracking-wider">location.current</p>
+                    <p className="text-lg font-semibold font-mono">Kuopio, Finland</p>
                   </div>
                 </div>
               </Card>
             </ScrollReveal>
 
             <ScrollReveal delay={500}>
-              <Card className="p-6 border-2 border-border hover:border-accent transition-all duration-300 group bg-card">
+              <Card className="p-6 border border-accent/30 hover:border-accent transition-all duration-300 group bg-card">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center group-hover:bg-accent group-hover:scale-110 transition-all">
+                  <div className="w-12 h-12 border border-accent bg-accent/10 flex items-center justify-center group-hover:bg-accent transition-all">
                     <svg
                       className="w-6 h-6 text-accent group-hover:text-background"
                       fill="none"
@@ -143,8 +147,8 @@ export function About() {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-sm text-muted-foreground uppercase tracking-wider">Approach</p>
-                    <p className="text-lg font-semibold">Tech Meets Creativity</p>
+                    <p className="text-xs text-muted-foreground font-mono uppercase tracking-wider">approach.style</p>
+                    <p className="text-lg font-semibold font-mono">Tech Meets Creativity</p>
                   </div>
                 </div>
               </Card>
