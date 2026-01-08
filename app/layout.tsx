@@ -1,5 +1,5 @@
 import type React from "react"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
@@ -8,6 +8,7 @@ const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://joonaskoskinen.com"),
   title: "Joonas Koskinen | IT Specialist & Software Advisor | Azure, M365, Business Central",
   description:
     "IT professional specializing in Microsoft Azure, M365, and Business Central at Azets Insight. ICT Engineering student with expertise in cybersecurity, license management, and full-stack web development. Available for consulting work.",
@@ -21,21 +22,37 @@ export const metadata: Metadata = {
     "ICT engineering",
     "full-stack developer",
     "Kuopio IT",
+    "EDM producer",
+    "PIGEON music",
   ],
   authors: [{ name: "Joonas Koskinen" }],
+  creator: "Joonas Koskinen",
+  publisher: "Joonas Koskinen",
+  alternates: {
+    canonical: "https://joonaskoskinen.com",
+  },
   openGraph: {
     title: "Joonas Koskinen - IT Specialist & Software Advisor",
     description:
-      "IT professional specializing in Azure, M365, and Business Central. Available for consulting work in Finland.",
+      "IT professional specializing in Azure, M365, and Business Central. EDM producer as PIGEON with Sony Music Finland releases. Available for consulting work.",
     url: "https://joonaskoskinen.com",
     siteName: "Joonas Koskinen Portfolio",
-    locale: "en_US",
+    locale: "fi_FI",
     type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Joonas Koskinen - IT Specialist & Software Advisor",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Joonas Koskinen - IT Specialist",
-    description: "IT professional specializing in Azure, M365, and Business Central",
+    title: "Joonas Koskinen - IT Specialist & EDM Producer",
+    description: "IT professional specializing in Azure, M365, and Business Central. EDM producer as PIGEON.",
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
@@ -48,7 +65,6 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  generator: "v0.app",
   icons: {
     icon: [
       {
@@ -68,13 +84,47 @@ export const metadata: Metadata = {
   },
 }
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#0a1628" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a1628" },
+  ],
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="fi">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Joonas Koskinen",
+              url: "https://joonaskoskinen.com",
+              jobTitle: "Software Advisor",
+              worksFor: {
+                "@type": "Organization",
+                name: "Azets Insight",
+              },
+              knowsAbout: ["Microsoft Azure", "Microsoft 365", "Business Central", "Cybersecurity", "Web Development"],
+              sameAs: [
+                "https://www.youtube.com/@PIGEONmusic",
+                "https://github.com/joonaskoskinen",
+                "https://linkedin.com/in/joonaskoskinen",
+              ],
+            }),
+          }}
+        />
+      </head>
       <body className={`font-sans antialiased`}>
         {children}
         <Analytics />
