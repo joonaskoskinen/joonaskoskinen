@@ -1,325 +1,274 @@
-"use client"
+@import "tailwindcss";
+@import "tw-animate-css";
 
-import { Card } from "@/components/ui/card"
-import { ExternalLink, Briefcase, TrendingUp, Shield, Database, GraduationCap } from "lucide-react"
-import { ScrollReveal } from "@/components/scroll-reveal"
+@custom-variant dark (&:is(.dark *));
 
-const workExperience = [
-  {
-    title: "Software Advisor",
-    company: "Azets Insight Oy",
-    period: "Current Role",
-    description: "Business software consulting focused on Microsoft Dynamics NAV/Business Central",
-    achievements: [
-      "User management and optimization for Business Central clients",
-      "System health monitoring through log analysis and diagnostics",
-      "SPOC (Single Point of Contact) support for enterprise customers",
-      "Azure infrastructure troubleshooting and maintenance",
-    ],
-    skills: ["Business Central", "Azure", "User Management", "Log Monitoring", "M365"],
-    icon: <Briefcase className="w-6 h-6" />,
-  },
-  {
-    title: "Service Desk Specialist",
-    company: "Istekki Oy",
-    period: "Previous Role",
-    description: "IT support and system administration following ITIL best practices",
-    achievements: [
-      "Active Directory user and group management",
-      "Azure AD integration and troubleshooting",
-      "Microsoft 365 administration and support",
-      "Incident management and resolution tracking",
-    ],
-    skills: ["Azure AD", "Active Directory", "ITIL", "M365 Admin", "Service Desk"],
-    icon: <Shield className="w-6 h-6" />,
-  },
-]
+/* Cyber/Terminal hacker theme - dark with cyan/green neon */
+:root {
+  --background: oklch(0.08 0.01 200);
+  --foreground: oklch(0.92 0.02 180);
+  --card: oklch(0.12 0.015 200);
+  --card-foreground: oklch(0.92 0.02 180);
+  --popover: oklch(0.1 0.015 200);
+  --popover-foreground: oklch(0.92 0.02 180);
+  --primary: oklch(0.75 0.18 175);
+  --primary-foreground: oklch(0.1 0.01 200);
+  --secondary: oklch(0.2 0.04 200);
+  --secondary-foreground: oklch(0.92 0.02 180);
+  --muted: oklch(0.2 0.02 200);
+  --muted-foreground: oklch(0.6 0.04 180);
+  --accent: oklch(0.65 0.2 140);
+  --accent-foreground: oklch(0.1 0.01 200);
+  --destructive: oklch(0.6 0.2 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.25 0.04 180);
+  --input: oklch(0.15 0.02 200);
+  --ring: oklch(0.75 0.18 175);
+  --chart-1: oklch(0.75 0.18 175);
+  --chart-2: oklch(0.65 0.2 140);
+  --chart-3: oklch(0.5 0.15 200);
+  --chart-4: oklch(0.8 0.15 180);
+  --chart-5: oklch(0.55 0.12 160);
+  --radius: 0.25rem;
+  --sidebar: oklch(0.1 0.015 200);
+  --sidebar-foreground: oklch(0.92 0.02 180);
+  --sidebar-primary: oklch(0.75 0.18 175);
+  --sidebar-primary-foreground: oklch(0.1 0.01 200);
+  --sidebar-accent: oklch(0.2 0.02 200);
+  --sidebar-accent-foreground: oklch(0.92 0.02 180);
+  --sidebar-border: oklch(0.25 0.04 180);
+  --sidebar-ring: oklch(0.75 0.18 175);
+}
 
-const projects = [
-  {
-    title: "Plushimo",
-    url: "plushimo.com",
-    description: "E-commerce platform with focus on performance and search optimization",
-    caseStudy: {
-      challenge: "Low organic traffic and poor search engine visibility",
-      solution: "Implemented comprehensive SEO strategy with Next.js optimization",
-      result: "30% increase in organic traffic within 3 months",
-    },
-    tech: ["Next.js", "TypeScript", "React", "SEO Optimization"],
-    metrics: [{ label: "SEO Improvement", value: "+30%" }],
-  },
-  {
-    title: "Summari",
-    url: "summari.fi",
-    description: "Finnish web solution with robust backend architecture",
-    caseStudy: {
-      challenge: "Need for scalable Finnish language content platform",
-      solution: "Built full-stack application with PostgreSQL database and secure authentication",
-      result: "Deployed production-ready platform",
-    },
-    tech: ["Next.js", "TypeScript", "PostgreSQL", "Authentication"],
-    metrics: [],
-  },
-]
+.dark {
+  --background: oklch(0.08 0.01 200);
+  --foreground: oklch(0.92 0.02 180);
+  --card: oklch(0.12 0.015 200);
+  --card-foreground: oklch(0.92 0.02 180);
+  --popover: oklch(0.1 0.015 200);
+  --popover-foreground: oklch(0.92 0.02 180);
+  --primary: oklch(0.75 0.18 175);
+  --primary-foreground: oklch(0.1 0.01 200);
+  --secondary: oklch(0.2 0.04 200);
+  --secondary-foreground: oklch(0.92 0.02 180);
+  --muted: oklch(0.2 0.02 200);
+  --muted-foreground: oklch(0.6 0.04 180);
+  --accent: oklch(0.65 0.2 140);
+  --accent-foreground: oklch(0.1 0.01 200);
+  --destructive: oklch(0.5 0.2 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.25 0.04 180);
+  --input: oklch(0.15 0.02 200);
+  --ring: oklch(0.75 0.18 175);
+  --chart-1: oklch(0.75 0.18 175);
+  --chart-2: oklch(0.65 0.2 140);
+  --chart-3: oklch(0.5 0.15 200);
+  --chart-4: oklch(0.8 0.15 180);
+  --chart-5: oklch(0.55 0.12 160);
+  --sidebar: oklch(0.1 0.015 200);
+  --sidebar-foreground: oklch(0.92 0.02 180);
+  --sidebar-primary: oklch(0.75 0.18 175);
+  --sidebar-primary-foreground: oklch(0.1 0.01 200);
+  --sidebar-accent: oklch(0.2 0.02 200);
+  --sidebar-accent-foreground: oklch(0.92 0.02 180);
+  --sidebar-border: oklch(0.25 0.04 180);
+  --sidebar-ring: oklch(0.75 0.18 175);
+}
 
-const securityInterests = [
-  {
-    title: "Log Analysis & Monitoring",
-    description: "Experience in monitoring Business Central logs for security events and system anomalies",
-    icon: <Database className="w-5 h-5" />,
-  },
-  {
-    title: "User & Access Management",
-    description: "Managing user permissions and access compliance in enterprise environments",
-    icon: <Shield className="w-5 h-5" />,
-  },
-  {
-    title: "Azure Security",
-    description: "Working with Azure AD, conditional access policies, and cloud security best practices",
-    icon: <TrendingUp className="w-5 h-5" />,
-  },
-]
+@theme inline {
+  --font-sans: "Geist", "Geist Fallback";
+  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
 
-export function Projects() {
-  return (
-    <section id="projects" className="py-24 px-4 relative">
-      <div className="max-w-6xl mx-auto space-y-24">
-        {/* Work Experience Section */}
-        <div>
-          <ScrollReveal>
-            <div className="mb-16">
-              <div className="font-mono text-sm text-muted-foreground mb-4">
-                <span className="text-primary">{">"}</span> cat ./experience/work.json
-              </div>
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
 
-              <h2 className="text-5xl md:text-7xl font-bold mb-4 text-balance">
-                <span className="text-primary">Work</span> Experience
-              </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl">
-                IT professional with hands-on experience in enterprise software and cloud infrastructure
-              </p>
-            </div>
-          </ScrollReveal>
+/* Cyber scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
 
-          <div className="space-y-6">
-            {workExperience.map((job, index) => (
-              <ScrollReveal key={index} delay={index * 150}>
-                <Card className="group relative overflow-hidden border border-border hover:border-primary transition-all duration-500 bg-card">
-                  <div className="flex items-center gap-2 px-4 py-2 border-b border-border bg-muted/30">
-                    <div className="flex gap-1.5">
-                      <div className="w-2.5 h-2.5 rounded-full bg-destructive/50" />
-                      <div className="w-2.5 h-2.5 rounded-full bg-accent/50" />
-                      <div className="w-2.5 h-2.5 rounded-full bg-primary/50" />
-                    </div>
-                    <span className="font-mono text-xs text-muted-foreground ml-2">
-                      {job.company.toLowerCase().replace(/ /g, "-")}.sh
-                    </span>
-                  </div>
+::-webkit-scrollbar-track {
+  background: oklch(0.08 0.01 200);
+}
 
-                  <div className="p-8">
-                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
-                      <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 border border-primary bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-all">
-                          <div className="text-primary group-hover:text-background transition-colors">{job.icon}</div>
-                        </div>
-                        <div>
-                          <h3 className="text-2xl font-bold font-mono group-hover:text-primary transition-colors">
-                            {job.title}
-                          </h3>
-                          <div className="flex flex-col md:flex-row md:items-center gap-2 mt-1">
-                            <p className="text-lg font-semibold text-accent font-mono">{job.company}</p>
-                            <span className="hidden md:inline text-muted-foreground">|</span>
-                            <p className="text-sm text-muted-foreground font-mono">{job.period}</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+::-webkit-scrollbar-thumb {
+  background: oklch(0.75 0.18 175);
+  border-radius: 0;
+}
 
-                    <p className="text-muted-foreground mb-6 leading-relaxed">{job.description}</p>
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.65 0.2 140);
+}
 
-                    <div className="mb-6">
-                      <h4 className="text-sm font-semibold text-foreground font-mono uppercase tracking-wider mb-3">
-                        <span className="text-primary">$</span> achievements
-                      </h4>
-                      <ul className="space-y-2 font-mono text-sm">
-                        {job.achievements.map((achievement, i) => (
-                          <li key={i} className="flex items-start gap-3 group/item">
-                            <span className="text-primary mt-0.5">{">"}</span>
-                            <span className="text-muted-foreground group-hover/item:text-foreground transition-colors leading-relaxed">
-                              {achievement}
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+/* Terminal/cyber animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
 
-                    <div className="flex flex-wrap gap-2">
-                      {job.skills.map((skill, i) => (
-                        <span
-                          key={i}
-                          className="px-3 py-1 bg-primary/10 text-primary text-sm font-mono border border-primary/30 hover:bg-primary hover:text-background transition-all cursor-default"
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </Card>
-              </ScrollReveal>
-            ))}
-          </div>
+@keyframes glow {
+  0%,
+  100% {
+    box-shadow: 0 0 5px oklch(0.75 0.18 175 / 0.3), 0 0 20px oklch(0.75 0.18 175 / 0.1);
+  }
+  50% {
+    box-shadow: 0 0 20px oklch(0.75 0.18 175 / 0.6), 0 0 40px oklch(0.75 0.18 175 / 0.3);
+  }
+}
 
-          <ScrollReveal delay={300}>
-            <div className="mt-8 p-6 border border-accent/30 bg-accent/5 hover:border-accent transition-all duration-300">
-              <div className="flex items-center gap-3">
-                <GraduationCap className="w-6 h-6 text-accent" />
-                <p className="text-lg font-mono">
-                  <span className="font-semibold text-accent">[STUDYING]</span>
-                  <span className="text-muted-foreground"> ICT Engineering @ LAB University of Applied Sciences</span>
-                </p>
-              </div>
-            </div>
-          </ScrollReveal>
-        </div>
+@keyframes text-glow {
+  0%,
+  100% {
+    text-shadow: 0 0 5px oklch(0.75 0.18 175 / 0.5), 0 0 20px oklch(0.75 0.18 175 / 0.2);
+  }
+  50% {
+    text-shadow: 0 0 20px oklch(0.75 0.18 175 / 0.8), 0 0 40px oklch(0.75 0.18 175 / 0.4);
+  }
+}
 
-        {/* Cybersecurity Interests Section */}
-        <div>
-          <ScrollReveal>
-            <div className="mb-16">
-              <div className="font-mono text-sm text-muted-foreground mb-4">
-                <span className="text-primary">{">"}</span> sudo ./security_focus.sh
-              </div>
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
 
-              <h2 className="text-5xl md:text-7xl font-bold mb-4 text-balance">
-                <span className="text-primary">Cybersecurity</span> Focus
-              </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl">
-                Passionate about security, monitoring, and protecting enterprise systems
-              </p>
-            </div>
-          </ScrollReveal>
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
 
-          <div className="grid md:grid-cols-3 gap-4">
-            {securityInterests.map((interest, index) => (
-              <ScrollReveal key={index} delay={index * 100}>
-                <Card className="group relative overflow-hidden border border-border hover:border-accent transition-all duration-500 bg-card p-6">
-                  <div className="w-12 h-12 border border-accent bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent transition-all">
-                    <div className="text-accent group-hover:text-background transition-colors">{interest.icon}</div>
-                  </div>
-                  <h3 className="text-lg font-bold font-mono mb-3 group-hover:text-accent transition-colors">
-                    {interest.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{interest.description}</p>
-                </Card>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
 
-        {/* Web Projects Section */}
-        <div>
-          <ScrollReveal>
-            <div className="mb-16">
-              <div className="font-mono text-sm text-muted-foreground mb-4">
-                <span className="text-primary">{">"}</span> ls ./projects/web/
-              </div>
+@keyframes glitch {
+  0%,
+  100% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+}
 
-              <h2 className="text-5xl md:text-7xl font-bold mb-4 text-balance">
-                <span className="text-primary">Web</span> Projects
-              </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl">
-                Full-stack applications with measurable results and real-world impact
-              </p>
-            </div>
-          </ScrollReveal>
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {projects.map((project, index) => (
-              <ScrollReveal key={index} delay={index * 150}>
-                <Card className="group relative overflow-hidden border border-border hover:border-primary transition-all duration-500 bg-card">
-                  <div className="flex items-center gap-2 px-4 py-2 border-b border-border bg-muted/30">
-                    <div className="flex gap-1.5">
-                      <div className="w-2.5 h-2.5 rounded-full bg-destructive/50" />
-                      <div className="w-2.5 h-2.5 rounded-full bg-accent/50" />
-                      <div className="w-2.5 h-2.5 rounded-full bg-primary/50" />
-                    </div>
-                    <span className="font-mono text-xs text-muted-foreground ml-2">{project.url}</span>
-                  </div>
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
 
-                  <div className="p-8">
-                    {/* Project number */}
-                    <div className="text-5xl font-bold font-mono text-primary/20 mb-4">0{index + 1}</div>
+.animate-text-glow {
+  animation: text-glow 2s ease-in-out infinite;
+}
 
-                    <div className="flex items-center gap-3 mb-4">
-                      <h3 className="text-2xl font-bold font-mono group-hover:text-primary transition-colors">
-                        {project.title}
-                      </h3>
-                      <ExternalLink className="w-5 h-5 text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                    </div>
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
 
-                    <a
-                      href={`https://${project.url}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-accent hover:text-primary transition-colors inline-block mb-4 font-mono text-sm hover:underline"
-                    >
-                      https://{project.url}
-                    </a>
+.animate-scanline {
+  animation: scanline 8s linear infinite;
+}
 
-                    <p className="text-muted-foreground mb-6 leading-relaxed">{project.description}</p>
+.animate-glitch {
+  animation: glitch 0.3s ease-in-out infinite;
+}
 
-                    {/* Case study details */}
-                    <div className="mb-6 p-4 border border-border bg-muted/20">
-                      <h4 className="text-sm font-semibold text-foreground font-mono uppercase tracking-wider mb-3">
-                        <span className="text-primary">//</span> Case Study
-                      </h4>
-                      <div className="space-y-2 text-sm font-mono">
-                        <p>
-                          <span className="text-accent">challenge:</span>{" "}
-                          <span className="text-muted-foreground">{project.caseStudy.challenge}</span>
-                        </p>
-                        <p>
-                          <span className="text-primary">solution:</span>{" "}
-                          <span className="text-muted-foreground">{project.caseStudy.solution}</span>
-                        </p>
-                        <p>
-                          <span className="text-accent">result:</span>{" "}
-                          <span className="text-foreground font-semibold">{project.caseStudy.result}</span>
-                        </p>
-                      </div>
-                    </div>
+/* CRT scanline overlay effect */
+.crt-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    oklch(0 0 0 / 0.03) 2px,
+    oklch(0 0 0 / 0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 100;
+}
 
-                    {/* Metrics */}
-                    {project.metrics.length > 0 && (
-                      <div className="flex gap-4 mb-6">
-                        {project.metrics.map((metric, i) => (
-                          <div key={i} className="flex-1 p-3 border border-primary/30 bg-primary/5">
-                            <p className="text-xs text-muted-foreground font-mono uppercase tracking-wider mb-1">
-                              {metric.label}
-                            </p>
-                            <p className="text-2xl font-bold font-mono text-primary">{metric.value}</p>
-                          </div>
-                        ))}
-                      </div>
-                    )}
+/* Terminal text effect */
+.terminal-text {
+  font-family: var(--font-mono);
+  text-shadow: 0 0 10px oklch(0.75 0.18 175 / 0.5);
+}
 
-                    <div className="flex flex-wrap gap-2">
-                      {project.tech.map((tech, i) => (
-                        <span
-                          key={i}
-                          className="px-3 py-1 bg-primary/10 text-primary text-sm font-mono border border-primary/30 hover:bg-primary hover:text-background transition-all cursor-default"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </Card>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  )
+/* Matrix rain effect container */
+.matrix-bg {
+  background-image: radial-gradient(ellipse at 50% 0%, oklch(0.75 0.18 175 / 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 100% 100%, oklch(0.65 0.2 140 / 0.05) 0%, transparent 40%);
 }
