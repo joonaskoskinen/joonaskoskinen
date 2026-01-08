@@ -85,7 +85,11 @@ export function Skills() {
       <div className="max-w-6xl mx-auto">
         <ScrollReveal>
           <div className="mb-16">
-            <div className="inline-block mb-6 px-6 py-2 border-2 border-primary/30 rounded-full">
+            <div className="font-mono text-sm text-muted-foreground mb-4">
+              <span className="text-primary">{">"}</span> ls -la ./skills/
+            </div>
+
+            <div className="inline-block mb-6 px-4 py-1 border border-primary/50 bg-primary/5">
               <span className="text-sm text-primary font-mono uppercase tracking-widest">Technical Expertise</span>
             </div>
             <h2 className="text-5xl md:text-7xl font-bold mb-4 text-balance">
@@ -100,31 +104,38 @@ export function Skills() {
         <div className="grid md:grid-cols-2 gap-6">
           {skillCategories.map((category, index) => (
             <ScrollReveal key={index} delay={index * 100}>
-              <Card className="group p-8 border-2 border-border hover:border-primary hover:scale-105 transition-all duration-500 bg-card relative overflow-hidden">
-                <div
-                  className={`absolute inset-0 bg-${category.color}/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
-                />
+              <Card className="group border border-border hover:border-primary transition-all duration-500 bg-card relative overflow-hidden">
+                {/* Terminal header */}
+                <div className="flex items-center gap-2 px-4 py-2 border-b border-border bg-muted/30">
+                  <div className="flex gap-1.5">
+                    <div className="w-2.5 h-2.5 rounded-full bg-destructive/50" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-accent/50" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-primary/50" />
+                  </div>
+                  <span className="font-mono text-xs text-muted-foreground ml-2">
+                    {category.title.toLowerCase().replace(/ /g, "-")}.sh
+                  </span>
+                </div>
 
-                <div className="relative z-10">
-                  <div
-                    className={`w-16 h-16 bg-${category.color}/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-${category.color} group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}
-                  >
-                    <div className={`text-${category.color} group-hover:text-background transition-colors`}>
-                      {category.icon}
+                <div className="p-6">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div
+                      className={`w-14 h-14 border border-${category.color} bg-${category.color}/10 flex items-center justify-center group-hover:bg-${category.color} transition-all duration-300`}
+                    >
+                      <div className={`text-${category.color} group-hover:text-background transition-colors`}>
+                        {category.icon}
+                      </div>
                     </div>
+                    <h3 className="text-2xl font-bold font-mono group-hover:text-primary transition-colors">
+                      {category.title}
+                    </h3>
                   </div>
 
-                  <h3 className="text-2xl font-bold mb-6 group-hover:text-primary transition-colors">
-                    {category.title}
-                  </h3>
-
-                  <div className="space-y-3">
+                  <div className="space-y-2 font-mono text-sm">
                     {category.skills.map((skill, i) => (
                       <div key={i} className="flex items-center gap-3 group/item">
-                        <div
-                          className={`w-2 h-2 rounded-full bg-${category.color} group-hover/item:scale-150 transition-transform`}
-                        />
-                        <span className="text-muted-foreground group-hover/item:text-foreground group-hover/item:translate-x-1 transition-all">
+                        <span className={`text-${category.color}`}>$</span>
+                        <span className="text-muted-foreground group-hover/item:text-foreground transition-all">
                           {skill}
                         </span>
                       </div>
