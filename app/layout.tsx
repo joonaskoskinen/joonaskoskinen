@@ -9,9 +9,9 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://joonaskoskinen.com"),
-  title: "Joonas Koskinen | IT Specialist & Software Advisor | Azure, M365, Business Central",
+  title: "Joonas Koskinen — IT Engineer / Software Professional",
   description:
-    "IT professional specializing in Microsoft Azure, M365, and Business Central at Azets Insight. ICT Engineering student with expertise in cybersecurity, license management, and full-stack web development. Available for consulting work.",
+    "Joonas Koskinen is an IT engineer and software professional from Kuopio, Finland, working across enterprise software, cloud infrastructure and digital products.",
   keywords: [
     "IT specialist Finland",
     "Microsoft Azure consultant",
